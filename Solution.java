@@ -12,12 +12,23 @@ public class Solution {
             alphabetMap.put(alphabet, String.valueOf(i+1));
         }
 
+        if (columnTitle.length()<2){
+            for (char aChar : chars) {
+               if (alphabetMap.containsKey(aChar)) numStr += alphabetMap.get(aChar);
+          }
 
-        for (char aChar : chars) {
-            if (alphabetMap.containsKey(aChar)) numStr += alphabetMap.get(aChar);
+            return Integer.parseInt(numStr);
+        }else{
+            int length = (columnTitle.length()-1)*26;
+            numStr += alphabetMap.get(columnTitle.charAt(columnTitle.length()-1));
+            //throw new RuntimeException(numStr);
+            return Integer.parseInt(numStr)+length;
         }
 
 
-        return Integer.parseInt(numStr);
+
+
+        //throw new RuntimeException(String.valueOf(alphabetMap)+ columnTitle.substring(columnTitle.length()-1));
+
     }
 }
